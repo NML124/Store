@@ -4,49 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 </head>
 
 <body>
-    <section>
-        <div>
-            <img src="" alt="logo">
-            <h1>Uncle Shop</h1>
-        </div>
-        <div>
-            <p>Big shop when we can find everything</p>
+    <section class="right">
+        <div class="rightTitle">
+            <div class="shopTitle">
+                <i class="fa-solid fa-shop"></i>
+                <h1>Luc Shop</h1>
+            </div>
+            <div>
+                <p>Where you can find everything</p>
+            </div>
         </div>
         <hr>
-        <div>
-            <div>
-                <img src="" alt="symbole">
+        <div class="menu">
+            <div class=" menu-dashboard">
+                <i class="fa-solid fa-gauge"></i>
                 <h2>Dashboard</h2>
             </div>
-            <div>
-                <img src="" alt="symbole">
-                <h2>Products</h2>
+            <div class=" menu-dashboard">
+                <i class="fa-solid fa-box"></i>
+                <h2>Product</h2>
             </div>
-            <div>
-                <img src="" alt="symbole">
+            <div class=" menu-dashboard">
+                <i class="fa-solid fa-basket-shopping"></i>
                 <h2>Command</h2>
             </div>
-            <div>
-                <img src="" alt="symbole">
+            <div class=" menu-dashboard">
+                <i class="fa-solid fa-user-nurse"></i>
                 <h2>Employe</h2>
             </div>
-            <div>
-                <img src="" alt="symbole">
+            <div class=" menu-dashboard">
+                <i class="fa-solid fa-globe"></i>
                 <h2>Provider</h2>
             </div>
         </div>
     </section>
-    <section>
-        <div>
+    <section class="left">
+        <div class="greeting">
+            <p>Welcome Back Luc !</p>
+        </div>
+        <div class="stats">
             <div class="card customer">
                 <div class="barre">
                 </div>
                 <div>
-                    <h2>Customer</h2>
+                    <h3>Customer</h3>
                     <h2 id="numberCustomer">10</h2>
                 </div>
             </div>
@@ -54,7 +64,7 @@
                 <div class="barre">
                 </div>
                 <div>
-                    <h2>Command</h2>
+                    <h3>Command</h3>
                     <h2 id="numberCommand">10</h2>
                 </div>
             </div>
@@ -62,7 +72,7 @@
                 <div class="barre">
                 </div>
                 <div>
-                    <h2>Provider</h2>
+                    <h3>Provider</h3>
                     <h2 id="numberProvider">10</h2>
                 </div>
             </div>
@@ -70,119 +80,114 @@
                 <div class="barre">
                 </div>
                 <div>
-                    <h2>Provider</h2>
-                    <h2 id="numberCommand">10</h2>
+                    <h3>Revenue</h3>
+                    <h2 id="numberRevenue">10</h2>
                 </div>
             </div>
         </div>
-        <div>
+        <div class="bestProduct">
             <div class="card">
-                <div>
-                    <h2> Best product</h2>
+                <div class="pieChartStats">
+                    <div>
+                        <h2> Best product</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="myChart"></canvas>
+                    </div>
                 </div>
-                <div class="circularDiagram">
 
-                </div>
-                <div>
-                    <div>
-                        <h3>1st</h3>
-                        <h2>Product 1</h2>
-                    </div>
-                    <div>
-                        <h3>2nd</h3>
-                        <h2>Product 2</h2>
-                    </div>
-                    <div>
-                        <h3>3th</h3>
-                        <h2>Product 3</h2>
-                    </div>
-                </div>
             </div>
             <div class="card">
-                <div>
-                    <h2>The best Product</h2>
-                </div>
-                <div>
+                <div class="theBestProduct">
                     <div>
-                        <img src="" alt="BestProduct">
+                        <h2>The best Product</h2>
                     </div>
-                    <div>
-                        <div>
-                            <h3>Product name</h3>
-                            <h2 id="bestProductName"> name</h2>
+                    <div class="flex">
+                        <div class="image">
+                            <img id="bestProductImage" src="./res/arbre.jpg" alt="BestProduct">
                         </div>
-                        <div>
-                            <h3>Unit cost</h3>
-                            <h2 id="bestProductCost"> 10</h2>
-                        </div>
-                        <div>
-                            <h3>Quantity</h3>
-                            <h2 id="bestProductQuantity"> 50</h2>
+                        <div class="flex-description">
+                            <div>
+                                <h3>Product name</h3>
+                                <h2 id="bestProductName"> name</h2>
+                            </div>
+                            <div>
+                                <h3>Unit cost</h3>
+                                <h2 id="bestProductCost"> 10</h2>
+                            </div>
+                            <div>
+                                <h3>Quantity</h3>
+                                <h2 id="bestProductQuantity"> 50</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div>
-                    <h2>
-                        Commands
-                    </h2>
-                </div>
-                <table>
-                    <tr>
-                        <th>No</th>
-                        <th>Id customer</th>
-                        <th> Customer name</th>
-                        <th> Product name</th>
-                        <th>Order date</th>
-                        <th>Price</th>
 
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td id="idCustomer1">4565d8</td>
-                        <td id="customerName1">Luc</td>
-                        <td id="productName1">Pain</td>
-                        <td id="orderDate1">10/10/2189</td>
-                        <td id="price1">10$</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td id="idCustomer2">4565d8</td>
-                        <td id="customerName2">Luc</td>
-                        <td id="productName2">Pain</td>
-                        <td id="orderDate2">10/10/2189</td>
-                        <td id="price2">10$</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td id="idCustomer3">4565d8</td>
-                        <td id="customerName3">Luc</td>
-                        <td id="productName3">Pain</td>
-                        <td id="orderDate3">10/10/2189</td>
-                        <td id="price3">10$</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td id="idCustomer4">4565d8</td>
-                        <td id="customerName4">Luc</td>
-                        <td id="productName4">Pain</td>
-                        <td id="orderDate4">10/10/2189</td>
-                        <td id="price4">10$</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td id="idCustomer5">4565d8</td>
-                        <td id="customerName5">Luc</td>
-                        <td id="productName5">Pain</td>
-                        <td id="orderDate5">10/10/2189</td>
-                        <td id="price5">10$</td>
-                    </tr>
-                </table>
             </div>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>
+                    Commands
+                </h2>
+            </div>
+            <table>
+                <tr>
+                    <th>No</th>
+                    <th>Id customer</th>
+                    <th> Customer name</th>
+                    <th> Product name</th>
+                    <th>Order date</th>
+                    <th>Price</th>
+
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td id="idCustomer1">4565d8</td>
+                    <td id="customerName1">Luc</td>
+                    <td id="productName1">Pain</td>
+                    <td id="orderDate1">10/10/2189</td>
+                    <td id="price1">10$</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td id="idCustomer2">4565d8</td>
+                    <td id="customerName2">Luc</td>
+                    <td id="productName2">Pain</td>
+                    <td id="orderDate2">10/10/2189</td>
+                    <td id="price2">10$</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td id="idCustomer3">4565d8</td>
+                    <td id="customerName3">Luc</td>
+                    <td id="productName3">Pain</td>
+                    <td id="orderDate3">10/10/2189</td>
+                    <td id="price3">10$</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td id="idCustomer4">4565d8</td>
+                    <td id="customerName4">Luc</td>
+                    <td id="productName4">Pain</td>
+                    <td id="orderDate4">10/10/2189</td>
+                    <td id="price4">10$</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td id="idCustomer5">4565d8</td>
+                    <td id="customerName5">Luc</td>
+                    <td id="productName5">Pain</td>
+                    <td id="orderDate5">10/10/2189</td>
+                    <td id="price5">10$</td>
+                </tr>
+            </table>
+        </div>
         </div>
 
     </section>
+    <script type="text/javascript" src="./js/index.js"></script>
 </body>
 
 </html>
