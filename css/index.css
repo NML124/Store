@@ -36,11 +36,14 @@ body {
 
 }
 
-.menu :hover,
-.menu>.selected {
+.menu :hover {
     background-color: rgb(169, 169, 181);
     color: white;
 
+}
+
+.menu>.selected {
+    color: white;
 }
 
 .menu>div>i {
