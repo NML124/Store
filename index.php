@@ -8,19 +8,23 @@ $result_command = $recup_command->fetch();
 $command = $result_command['NoCom'];
 
 /*For the provider*/
-$recup_provider = $db->prepare('SELECT COUNT(*) AS NoCom FROM provider');
+$recup_provider = $db->prepare('SELECT COUNT(*) AS NoProvider FROM provider');
 $recup_provider->execute();
 $result_provider = $recup_provider->fetch();
-$provider = $result_provider['NoCom'];
+$provider = $result_provider['NoProvider'];
 
 /*For the customer*/
-$recup_customer = $db->prepare('SELECT COUNT(*) AS NoCom FROM customer');
+$recup_customer = $db->prepare('SELECT COUNT(*) AS CustomerCode FROM customer');
 $recup_customer->execute();
 $result_customer = $recup_customer->fetch();
-$customer = $result_customer['NoCom'];
+$customer = $result_customer['CustomerCode'];
 
 
-
+/*For the product*/
+$recup_product = $db->prepare('SELECT COUNT(*) AS Refprod FROM product');
+$recup_product->execute();
+$result_product = $recup_product->fetch();
+$product = $result_product['Refprod'];
 
 ?>
 
@@ -104,8 +108,8 @@ $customer = $result_customer['NoCom'];
                 <div class="barre">
                 </div>
                 <div>
-                    <h3>Revenue</h3>
-                    <h2 id="numberRevenue">10</h2>
+                    <h3>Product</h3>
+                    <h2 id="numberRevenue"><?php echo $product; ?></h2>
                 </div>
             </div>
         </div>
