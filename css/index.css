@@ -36,7 +36,8 @@ body {
 
 }
 
-.menu :hover {
+.menu :hover,
+.menu>.selected {
     background-color: rgb(169, 169, 181);
     color: white;
 
