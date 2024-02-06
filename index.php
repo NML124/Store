@@ -26,6 +26,13 @@ $recup_product->execute();
 $result_product = $recup_product->fetch();
 $product = $result_product['Refprod'];
 
+
+/*For the best product*/
+
+$sql = "SELECT * FROM command 
+        JOIN commanddetail ON command.NoCom = commanddetail.NoCom 
+        JOIN product ON commanddetail.Refprod = product.Refprod";
+$result_join = $db->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -170,6 +177,19 @@ $product = $result_product['Refprod'];
                     <th>Price</th>
 
                 </tr>
+                <?php
+                while ($data = $result_join->fetch()) {
+                    echo '<tr>';
+                    echo '<td>1</td>';
+                    echo '<td id="idCustomer1">' . $data['Refprod'] . '</td>';
+                    echo '<td id="customerName1">' . $data['CustomerCode'] . '</td>';
+                    echo '<td id="productName1">' . $data['ProdName'] . '</td>';
+                    echo '<td id="orderDate1">' . $data['ComDate'] . '</td>';
+                    echo '<td id="price1">' . $data['UnitPrice'] . '$</td>';
+                    echo '</tr>';
+                }
+                ?>
+
                 <tr>
                     <td>1</td>
                     <td id="idCustomer1">4565d8</td>
