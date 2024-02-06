@@ -1,3 +1,29 @@
+<?php
+include('php/database_connection.php');
+$db = connectToDatabase();
+/*For the command*/
+$recup_command = $db->prepare('SELECT COUNT(*) AS NoCom FROM command');
+$recup_command->execute();
+$result_command = $recup_command->fetch();
+$command = $result_command['NoCom'];
+
+/*For the provider*/
+$recup_provider = $db->prepare('SELECT COUNT(*) AS NoCom FROM provider');
+$recup_provider->execute();
+$result_provider = $recup_provider->fetch();
+$provider = $result_provider['NoCom'];
+
+/*For the customer*/
+$recup_customer = $db->prepare('SELECT COUNT(*) AS NoCom FROM customer');
+$recup_customer->execute();
+$result_customer = $recup_customer->fetch();
+$customer = $result_customer['NoCom'];
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +31,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Dashboard</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 </head>
@@ -57,7 +81,7 @@
                 </div>
                 <div>
                     <h3>Customer</h3>
-                    <h2 id="numberCustomer">10</h2>
+                    <h2 id="numberCustomer"><?php echo $customer; ?></h2>
                 </div>
             </div>
             <div class="card command">
@@ -65,7 +89,7 @@
                 </div>
                 <div>
                     <h3>Command</h3>
-                    <h2 id="numberCommand">10</h2>
+                    <h2 id="numberCommand"><?php echo $command; ?></h2>
                 </div>
             </div>
             <div class="card provider">
@@ -73,7 +97,7 @@
                 </div>
                 <div>
                     <h3>Provider</h3>
-                    <h2 id="numberProvider">10</h2>
+                    <h2 id="numberProvider"><?php echo $provider; ?></h2>
                 </div>
             </div>
             <div class="card revenue">
