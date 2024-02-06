@@ -28,6 +28,14 @@ $product = $result_product['Refprod'];
 
 
 /*For the best product*/
+$sql_0 = "SELECT * FROM commanddetail 
+        JOIN product ON product.Refprod = commanddetail.Refprod ORDER BY Quantity DESC LIMIT 1 ";
+$result_join_0 = $db->query($sql_0);
+$recup_best_product = $result_join_0->fetch();
+
+
+
+/* Si tu efface le commentaire le code ne marche plus je sais pas pourquoi mais laisse simplement
 $recup_best_product = $db->prepare('SELECT NoCom, COUNT(*) as nombre
 FROM command
 GROUP BY NoCom
@@ -35,12 +43,16 @@ ORDER BY nombre DESC
 LIMIT 1');
 $recup_best_product->execute();
 $recup_best_product = $recup_best_product->fetch();
+$recup_best_product_name = $recup_best_product['NoCom'];*/
+
 
 /*For all command*/
 $sql = "SELECT * FROM command 
-        JOIN commanddetail ON command.NoCom = commanddetail.NoCom 
+        JOIN customer ON command.CustomerCode = customer.CustomerCode 
+        JOIN commanddetail ON commanddetail.NoCom = command.NoCom
         JOIN product ON commanddetail.Refprod = product.Refprod";
 $result_join = $db->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -190,8 +202,8 @@ $result_join = $db->query($sql);
                     while ($data = $result_join->fetch()) {
                         echo '<tr>';
                         echo '<td>' . $i . '</td>';
-                        echo '<td id="idCustomer">' . $data['Refprod'] . '</td>';
-                        echo '<td id="customerName">' . $data['CustomerCode'] . '</td>';
+                        echo '<td id="idCustomer">' . $data['CustomerCode'] . '</td>';
+                        echo '<td id="customerName">' . $data['Contact'] . '</td>';
                         echo '<td id="productName">' . $data['ProdName'] . '</td>';
                         echo '<td id="orderDate">' . $data['ComDate'] . '</td>';
                         echo '<td id="price">' . $data['UnitPrice'] . '$</td>';
@@ -204,6 +216,7 @@ $result_join = $db->query($sql);
         </div>
 
     </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>
 </body>
 
