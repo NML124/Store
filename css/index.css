@@ -4,6 +4,7 @@
 
 body {
     display: flex;
+    overflow: hidden;
 }
 
 .rightTitle {
@@ -64,6 +65,7 @@ hr {
 .left {
     background-color: rgba(224, 232, 248, 0.94);
     width: 80%;
+    height: 100vh;
 }
 
 .greeting {
@@ -84,6 +86,7 @@ hr {
 
 .stats {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
@@ -125,14 +128,15 @@ h3 {
 
 .bestProduct {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     justify-content: space-evenly;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .bestProduct>.card>.theBestProduct {
-    width: 700px;
     padding: 20px;
+    flex-grow: 2;
 }
 
 .theBestProduct>.flex {
@@ -157,6 +161,7 @@ h3 {
     width: 300px;
     height: 250px;
     padding: 20px;
+    flex-grow: 1;
 }
 
 .chart-container {
@@ -170,4 +175,24 @@ h3 {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.commands {
+    width: 70%;
+    padding: 10px;
+    margin: auto;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.commands>.card {
+    padding: 10px;
+}
+
+td {
+    padding: 10px 50px;
+}
+
+table {
+    margin-top: 10px;
 }
