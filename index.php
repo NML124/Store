@@ -160,78 +160,39 @@ $result_join = $db->query($sql);
 
             </div>
         </div>
+        <div class="commands">
+            <div class="card">
+                <div>
+                    <h2>
+                        Commands
+                    </h2>
+                </div>
+                <table>
+                    <tr>
+                        <th>No</th>
+                        <th>Id customer</th>
+                        <th> Customer name</th>
+                        <th> Product name</th>
+                        <th>Order date</th>
+                        <th>Price</th>
 
-        <div class="card">
-            <div>
-                <h2>
-                    Commands
-                </h2>
+                    </tr>
+                    <?php
+                    $i = 1;
+                    while ($data = $result_join->fetch()) {
+                        echo '<tr>';
+                        echo '<td>. $i .</td>';
+                        echo '<td id="idCustomer">' . $data['Refprod'] . '</td>';
+                        echo '<td id="customerName">' . $data['CustomerCode'] . '</td>';
+                        echo '<td id="productName">' . $data['ProdName'] . '</td>';
+                        echo '<td id="orderDate">' . $data['ComDate'] . '</td>';
+                        echo '<td id="price">' . $data['UnitPrice'] . '$</td>';
+                        echo '</tr>';
+                        $i++;
+                    }
+                    ?>
+                </table>
             </div>
-            <table>
-                <tr>
-                    <th>No</th>
-                    <th>Id customer</th>
-                    <th> Customer name</th>
-                    <th> Product name</th>
-                    <th>Order date</th>
-                    <th>Price</th>
-
-                </tr>
-                <?php
-                while ($data = $result_join->fetch()) {
-                    echo '<tr>';
-                    echo '<td>1</td>';
-                    echo '<td id="idCustomer1">' . $data['Refprod'] . '</td>';
-                    echo '<td id="customerName1">' . $data['CustomerCode'] . '</td>';
-                    echo '<td id="productName1">' . $data['ProdName'] . '</td>';
-                    echo '<td id="orderDate1">' . $data['ComDate'] . '</td>';
-                    echo '<td id="price1">' . $data['UnitPrice'] . '$</td>';
-                    echo '</tr>';
-                }
-                ?>
-
-                <tr>
-                    <td>1</td>
-                    <td id="idCustomer1">4565d8</td>
-                    <td id="customerName1">Luc</td>
-                    <td id="productName1">Pain</td>
-                    <td id="orderDate1">10/10/2189</td>
-                    <td id="price1">10$</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td id="idCustomer2">4565d8</td>
-                    <td id="customerName2">Luc</td>
-                    <td id="productName2">Pain</td>
-                    <td id="orderDate2">10/10/2189</td>
-                    <td id="price2">10$</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td id="idCustomer3">4565d8</td>
-                    <td id="customerName3">Luc</td>
-                    <td id="productName3">Pain</td>
-                    <td id="orderDate3">10/10/2189</td>
-                    <td id="price3">10$</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td id="idCustomer4">4565d8</td>
-                    <td id="customerName4">Luc</td>
-                    <td id="productName4">Pain</td>
-                    <td id="orderDate4">10/10/2189</td>
-                    <td id="price4">10$</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td id="idCustomer5">4565d8</td>
-                    <td id="customerName5">Luc</td>
-                    <td id="productName5">Pain</td>
-                    <td id="orderDate5">10/10/2189</td>
-                    <td id="price5">10$</td>
-                </tr>
-            </table>
-        </div>
         </div>
 
     </section>
