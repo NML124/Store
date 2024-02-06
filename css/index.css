@@ -35,6 +35,13 @@ body {
 
 }
 
+.menu {
+
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
 .menu :hover {
     background-color: rgb(169, 169, 181);
     color: white;
@@ -62,12 +69,7 @@ hr {
     margin: 10px 0px 50px 0px;
 }
 
-.menu {
 
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-}
 
 .left {
     background-color: rgba(224, 232, 248, 0.94);
