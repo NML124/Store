@@ -28,7 +28,15 @@ $product = $result_product['Refprod'];
 
 
 /*For the best product*/
+$recup_best_product = $db->prepare('SELECT NoCom, COUNT(*) as nombre
+FROM command
+GROUP BY NoCom
+ORDER BY nombre DESC
+LIMIT 1');
+$recup_best_product->execute();
+$recup_best_product = $recup_best_product->fetch();
 
+/*For all command*/
 $sql = "SELECT * FROM command 
         JOIN commanddetail ON command.NoCom = commanddetail.NoCom 
         JOIN product ON commanddetail.Refprod = product.Refprod";
@@ -144,15 +152,15 @@ $result_join = $db->query($sql);
                         <div class="flex-description">
                             <div>
                                 <h3>Product name</h3>
-                                <h2 id="bestProductName"> name</h2>
+                                <h2 id="bestProductName"><?php echo $recup_best_product['ProdName'] ?></h2>
                             </div>
                             <div>
                                 <h3>Unit cost</h3>
-                                <h2 id="bestProductCost"> 10</h2>
+                                <h2 id="bestProductCost"><?php echo $recup_best_product['UnitPrice'] ?></h2>
                             </div>
                             <div>
                                 <h3>Quantity</h3>
-                                <h2 id="bestProductQuantity"> 50</h2>
+                                <h2 id="bestProductQuantity"><?php echo $recup_best_product['Quantity'] ?></h2>
                             </div>
                         </div>
                     </div>
@@ -181,7 +189,7 @@ $result_join = $db->query($sql);
                     $i = 1;
                     while ($data = $result_join->fetch()) {
                         echo '<tr>';
-                        echo '<td>. $i .</td>';
+                        echo '<td>' . $i . '</td>';
                         echo '<td id="idCustomer">' . $data['Refprod'] . '</td>';
                         echo '<td id="customerName">' . $data['CustomerCode'] . '</td>';
                         echo '<td id="productName">' . $data['ProdName'] . '</td>';
