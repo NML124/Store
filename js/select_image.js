@@ -5,7 +5,7 @@
         .then(image => {
             console.log(image);
             const img = image.hits[0].largeImageURL;
-            const bg = document.querySelector(".essaie");
+            const bg = document.querySelector(".image");
             bg.style.backgroundImage = `url(${img})`
         });
 }

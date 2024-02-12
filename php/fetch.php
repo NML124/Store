@@ -11,7 +11,7 @@ $total_quantity = $data_total['total_quantity'];
 // Récupérer les trois meilleurs produits
 $sql = "SELECT * FROM commanddetail 
     JOIN product ON product.Refprod = commanddetail.Refprod 
-    ORDER BY Quantity DESC LIMIT 3";
+    ORDER BY Quantity DESC LIMIT 4";
 $result_join = $db->query($sql);
 
 // Calculer le pourcentage et créer le JSON
@@ -23,11 +23,5 @@ while ($row = $result_join->fetch(PDO::FETCH_ASSOC)) {
     $best_products[] = $row;
     $total_percentage += $percentage;
 }
-
-$other_percentage = 100 - $total_percentage;
-$other = array("ProdName" => "Other", "percentage" => $other_percentage);
-$best_products[] = $other;
-$best_products[] = $total_quantity;
-
 
 echo json_encode($best_products);
