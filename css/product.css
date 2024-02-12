@@ -1,0 +1,12 @@
+@import url("../Constants/variables_colors.css");
+
+#filter {
+    background-color: rgb(227, 228, 230);
+    box-shadow: 10px;
+    width: 20%;
+    height: 100vh;
+}
+
+.left {
+    background-color: var(--main-color);
+}
